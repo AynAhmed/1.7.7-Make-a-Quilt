@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html,body{
+        display:flex;
+        flex-wrap: wrap;
+        height:100%;
+        width:100%;
+        padding-left:2%;
+        padding-right:2%;
+    }
+    div{
+        height:10%;
+        width:9%;
+        border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Define an array with four colors
+    const colors = ["red", "blue", "green", "purple"];
+
+    // Function to get a random color from the array
+    function getRandomColor() {
+      const randomIndex = Math.floor(Math.random() * colors.length);
+      return colors[randomIndex];
+    }
+
+    // Function to change the background color of a div
+    function paint(evt) {
+        evt.target.style.backgroundColor = getRandomColor();
+    }
+
+    // Add 100 divs to the canvas
+    for (let i = 0; i < 100; i++) {
+      const div = document.createElement("div");
+
+      div.addEventListener("mouseover", paint);
+      document.body.appendChild(div);
+    }
+  </script>
+</body>
+</html>
